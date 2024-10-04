@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Pemilihan2Percobaan2_14 {
     public static void main(String[] args) {
         double diskon, total_bayar;
-        String member;
+        String member, qris;
         int pilihan_menu, harga = 0;
 
         Scanner input14 = new Scanner(System.in);
@@ -19,6 +19,8 @@ public class Pemilihan2Percobaan2_14 {
          input14.nextLine();
          System.out.print("Apakah Punya Member(y/n) ? = ");
          member = input14.nextLine();
+         System.out.print("Apakah pakai metode QRIS(y/n) ? = ");
+         qris = input14.nextLine();
          System.out.println("-------------------------------------");
 
          if (member.equalsIgnoreCase("y")) { // Menggunakan equalsIgnoreCase untuk membandingkan String
@@ -63,12 +65,19 @@ public class Pemilihan2Percobaan2_14 {
                 System.out.println("Masukkan pilihan menu dengan benar");
                 return; // Menghentikan eksekusi lebih lanjut jika pilihan salah
             }
+            total_bayar = harga;
             // Menghitung total bayar
-            System.out.println("Total bayar = " + harga);
 
         } else {
             System.out.println("Member tidak valid");
+            return;
+        }  
+        
+        if (qris.equalsIgnoreCase("y")) {
+            total_bayar -= 1000; 
+            System.out.println("Potongan harga QRIS = Rp. 1.000");
         }
+        System.out.println("Total bayar = " + total_bayar);
         System.out.println("-------------------------------------");    
         } 
         }
